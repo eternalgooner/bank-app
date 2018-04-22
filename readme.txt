@@ -1,5 +1,3 @@
-to test the api you can import the "BookCatalogue.postman_collection.json" file into Postman.
-the file is in the root of this project.
 
 -------------------
 TEAM MEMBERS
