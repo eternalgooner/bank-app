@@ -1,10 +1,10 @@
-package com.bookcatalogue;
+package com.bankapp;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.bookcatalogue.model.Book;
+import com.bankapp.model.Book;
 
 /**
  *

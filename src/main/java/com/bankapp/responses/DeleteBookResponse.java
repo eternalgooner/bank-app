@@ -1,8 +1,8 @@
-package com.bookcatalogue.responses;
+package com.bankapp.responses;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.bookcatalogue.model.Book;
+import com.bankapp.model.Book;
 
 @XmlRootElement
 public class DeleteBookResponse {

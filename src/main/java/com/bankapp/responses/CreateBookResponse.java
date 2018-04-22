@@ -1,4 +1,4 @@
-package com.bookcatalogue.responses;
+package com.bankapp.responses;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

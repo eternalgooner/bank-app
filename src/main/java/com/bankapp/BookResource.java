@@ -1,5 +1,5 @@
 
-package com.bookcatalogue;
+package com.bankapp;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -11,10 +11,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import com.bookcatalogue.model.Book;
-import com.bookcatalogue.responses.DeleteBookResponse;
-import com.bookcatalogue.responses.BookNotFoundResponse;
-import com.bookcatalogue.responses.CreateBookResponse;
+
+import com.bankapp.model.Book;
+import com.bankapp.responses.BookNotFoundResponse;
+import com.bankapp.responses.CreateBookResponse;
+import com.bankapp.responses.DeleteBookResponse;
 
 /**
  *
