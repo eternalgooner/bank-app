@@ -2,3 +2,7 @@
 .target
 *target
 */target
+.settings
+/settings
+*.settings
+*/settings
