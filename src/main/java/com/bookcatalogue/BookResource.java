@@ -55,6 +55,8 @@ public class BookResource {
 		}    	
     }
     
+    //some help achieved with this method by watching pluralsight training video for Jersey
+    //https://www.pluralsight.com/courses/restful-services-java-using-jersey
     @POST
     @Path("book/create")
     @Consumes(MediaType.APPLICATION_JSON)
