@@ -18,6 +18,25 @@ public class Account {
 		this.accountType = accountType;
 	}
 	
+	public boolean makeLodgement(double amount) {
+		currentBalance += amount;
+		return true;
+	}
+	
+	public boolean makeWithdrawal(double amount) {
+		if((currentBalance - amount) < 0) {
+			return false;
+		}else {
+			currentBalance -= amount;
+			return true;
+		}
+	}
+	
+
+	public double getBlanace(int accountId) {
+		return currentBalance;
+	}
+	
 	public int getSortCode() {
 		return sortCode;
 	}
@@ -49,10 +68,8 @@ public class Account {
 		this.transactionList = transactionList;
 	}
 	
-	private enum AccountType{
+	public enum AccountType{
 		CURRENT,
 		SAVINGS
 	}
-	
-
 }
