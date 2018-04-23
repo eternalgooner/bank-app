@@ -39,36 +39,6 @@ public class Customer {
 		}
 	}
 	
-	public boolean makeTransfer(int accountFromId, int accountToId, double amount) {
-		try {
-			//try & deduct amount from accountFromId
-			//if successful, then add amount to accountToId
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-	}
-	
-	public boolean makeWithdrawal(int accountFromId, double amount) {
-		try {
-			//try & deduct amount from accountFromId
-			
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-	}
-	
-
-	public double getBlanace(int accountId) {
-		//return balance from DB
-		return 22.3;
-	}
-	
 	public String getName() {
 		return name;
 	}
