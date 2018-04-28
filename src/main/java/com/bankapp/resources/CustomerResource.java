@@ -4,20 +4,23 @@ package com.bankapp.resources;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.bankapp.model.Customer;
+import com.bankapp.responses.CustomerResponse;
 import com.bankapp.services.BankService;
 
 /**
  *
  * @author x17135486
  */
-@Path("/rest/")
+@Path("/customer/")
 public class CustomerResource {
 	
 	private static Logger LOGGER = Logger.getLogger(CustomerResource.class.getSimpleName());
@@ -25,27 +28,28 @@ public class CustomerResource {
     private static final int _404_ERROR_CODE = 404;
 	private static final String CUSTOMER_CREATED = "customer created successfully";
     
-    @GET
-    @Path("customers")
+    @POST
+    @Path("create")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public List<Customer> getAllCustomers(){        					//need to add Type in List as this uses @XmlRootElement
-    	LOGGER.info("entering path webapi/rest/customers");
-    	List<Customer> customers = bankService.getAllCustomers();
-    	return customers;
+    public CustomerResponse createCustomer(){
+    	LOGGER.info("entering path webapi/customer/create");
+    	//add customer to DB using customer service
+    	return new CustomerResponse();
     }
     
     @GET
-    @Path("customer/{id}")
+    @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer getCustomer(@PathParam("id") int id) {
-    	LOGGER.info("entering path webapi/rest/book/" + id);
+    	LOGGER.info("entering path webapi/customer/{id}/" + id);
     	Customer customer = bankService.getCustomer(id);
     	if (customer != null) {
-    		LOGGER.info("book found, returning book");
+    		LOGGER.info("customer found, returning...");
             return customer;
 		}else {
 			LOGGER.info("no customer found, return error message");
-			//return bookResponse; flesh this out
+			//return CustomerResponse; flesh this out
 			return null;
 		}    	
     }
