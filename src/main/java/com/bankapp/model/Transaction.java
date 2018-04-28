@@ -29,8 +29,6 @@ public class Transaction {
 			return debitAccount();
 		case CREDIT:
 			return creditAccount();
-		case TRANSFER:
-			return transferFunds();
 		default:
 			return false;
 		}
@@ -93,8 +91,7 @@ public class Transaction {
 
 	public enum TransactionType{
 		DEBIT,
-		CREDIT,
-		TRANSFER
+		CREDIT
 	}
 
 }

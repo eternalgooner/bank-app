@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.bankapp.model.Customer;
+import com.bankapp.responses.BankResponse;
 
 
 
@@ -52,5 +53,9 @@ public class BankService {
 	public static void addToCustomerList(Customer newCustomer) {
 		//newCustomer.setId(customerList.size() + 1);   set id should be set when adding to DB
 		customerList.add(newCustomer);
+	}
+
+	public BankResponse getGreeting() {
+		return new BankResponse();
 	}   
 }
