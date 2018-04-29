@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -29,8 +28,7 @@ public class BankResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public BankResponse getGreeting(){
     	LOGGER.info("entering path webapi/rest/bank");
-    	BankResponse response = bankService.getGreeting();
-    	return response;
+    	return new BankResponse();
     }
     
     @GET
@@ -39,6 +37,6 @@ public class BankResource {
     public List<Customer> getCustomers() {
     	LOGGER.info("entering path webapi/bank/customers");
     	List<Customer> customerList = bankService.getAllCustomers();
-			return customerList; 	
+		return customerList; 	
     }
 }

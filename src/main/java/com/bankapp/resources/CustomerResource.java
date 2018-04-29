@@ -1,7 +1,6 @@
 
 package com.bankapp.resources;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ws.rs.Consumes;
@@ -14,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.bankapp.model.Customer;
 import com.bankapp.responses.CustomerResponse;
-import com.bankapp.services.BankService;
+import com.bankapp.services.CustomerService;
 
 /**
  *
@@ -24,17 +23,16 @@ import com.bankapp.services.BankService;
 public class CustomerResource {
 	
 	private static Logger LOGGER = Logger.getLogger(CustomerResource.class.getSimpleName());
-    private BankService bankService = new BankService();
-    private static final int _404_ERROR_CODE = 404;
-	private static final String CUSTOMER_CREATED = "customer created successfully";
+	private CustomerService customerService = new CustomerService();
     
-    @POST
+	@POST
     @Path("create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public CustomerResponse createCustomer(){
+    public CustomerResponse createCustomer(Customer newCustomer){
     	LOGGER.info("entering path webapi/customer/create");
-    	//add customer to DB using customer service
+    	customerService.addCustomer(newCustomer);
+    	
     	return new CustomerResponse();
     }
     
@@ -43,7 +41,7 @@ public class CustomerResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer getCustomer(@PathParam("id") int id) {
     	LOGGER.info("entering path webapi/customer/{id}/" + id);
-    	Customer customer = bankService.getCustomer(id);
+    	Customer customer = customerService.getCustomer(id);
     	if (customer != null) {
     		LOGGER.info("customer found, returning...");
             return customer;
@@ -54,26 +52,28 @@ public class CustomerResource {
 		}    	
     }
     
-   /*
-    * need to refactor these 2 methods for the bank
-    *  
-    *  @POST
-    @Path("customer/create")
+   
+    @POST
+    @Path("update")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public CreateCustomerResponse createBook(Customer newCustomer) {
-    	LOGGER.info("create customer request received: " + newCustomer);
-    	BankService.addToCustomerList(newCustomer);
-    	int newBookId = bankService.getAllCustomers().size();
-        return new CreateBookResponse(BOOK_CREATED, + newBookId);
+    public CustomerResponse updateCustomer(Customer updatedCustomer) {
+    	LOGGER.info("update customer request received: " + updatedCustomer);
+    	customerService.updateCustomer(updatedCustomer);
+        return new CustomerResponse("updated profile, " + updatedCustomer.toString());
     }
    
     @GET
-    @Path("book/delete/{id}")
+    @Path("delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public DeleteBookResponse deleteBook(@PathParam("id") int id) {
-    	LOGGER.info("request received to delete book with id: " + id);
-    	Book deletedBook = bookService.deleteBook(id);
-        return new DeleteBookResponse(deletedBook, true);
-    }*/
+    public CustomerResponse deleteCustomer(@PathParam("id") int id) {
+    	LOGGER.info("request received to delete customer with id: " + id);
+    	boolean customerIsDeleted = customerService.deleteCustomer(id);    	
+    	if (customerIsDeleted) {
+    		return new CustomerResponse("customer deleted with id " + id);
+		}else {
+			 //TODO return bad response
+	    	return new CustomerResponse("failed");
+		}       
+    }
 }
