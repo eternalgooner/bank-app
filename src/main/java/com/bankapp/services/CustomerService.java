@@ -6,17 +6,14 @@ import com.bankapp.repository.BankRepository;
 public class CustomerService {
 
 	public Customer getCustomer(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return BankRepository.getCustomerById(id);
 	}
 
 	public boolean updateCustomer(Customer updatedCustomer) {
-		// TODO Auto-generated method stub
 		return BankRepository.updateCustomer(updatedCustomer) ? true : false;
 	}
 
 	public boolean addCustomer(Customer newCustomer) {
-		// TODO Auto-generated method stub
 		return BankRepository.addCustomer(newCustomer) ? true : false;
 	}
 	
