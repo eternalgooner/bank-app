@@ -34,4 +34,9 @@ public class BankService {
 	public boolean addToCustomerList(Customer newCustomer) {
 		return BankRepository.addCustomer(newCustomer) ? true : false;
 	}
+
+	public void login(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
 }

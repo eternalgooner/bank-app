@@ -24,14 +24,13 @@ account/
 		create
 		delete/{id}
 		{type}
-		update
 		transaction/withdraw
 		transaction/lodge
 		balance/{id}
 		transactions/{id}
-		transfer
-		
+		transfer		
 		login
-
 		logout
 		
+profile/
+		update
