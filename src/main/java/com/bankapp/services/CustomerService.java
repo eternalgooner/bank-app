@@ -10,7 +10,7 @@ public class CustomerService {
 	}
 
 	public boolean updateCustomer(Customer updatedCustomer) {
-		return BankRepository.updateCustomer(updatedCustomer) ? true : false;
+		return BankRepository.updateAddress(updatedCustomer) ? true : false;
 	}
 
 	public boolean addCustomer(Customer newCustomer) {

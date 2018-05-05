@@ -15,10 +15,8 @@ import com.bankapp.model.Account;
 import com.bankapp.model.Customer;
 import com.bankapp.model.Transaction;
 import com.bankapp.responses.AccountResponse;
-import com.bankapp.responses.CustomerResponse;
 import com.bankapp.responses.TransactionResponse;
 import com.bankapp.services.AccountService;
-import com.bankapp.services.CustomerService;
 
 @Path("/customer/account/")
 public class AccountResource {
@@ -41,7 +39,7 @@ public class AccountResource {
     	
 	//delete/{id}
     @GET
-    @Path("{id}")
+    @Path("/delete/{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public AccountResponse deleteAccount(@PathParam("id") int id) {
     	LOGGER.info("entering path webapi/customer/account/delete{id}/" + id);
