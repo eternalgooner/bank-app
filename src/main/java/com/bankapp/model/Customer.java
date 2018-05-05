@@ -11,6 +11,8 @@ public class Customer {
 	private int pin;
 	private List<Account> accountList;
 	
+	public Customer() {}
+	
 	public Customer(String name, String address, String email, int pin) {
 		this.name = name;
 		this.address = address;

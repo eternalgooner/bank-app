@@ -31,6 +31,3 @@ account/
 		transfer		
 		login
 		logout
-		
-profile/
-		update
