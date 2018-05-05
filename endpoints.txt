@@ -1,0 +1,37 @@
+endpoints
+----------------------------
+
+
+-------
+done
+-------
+/bank/
+   		home
+   		customers
+
+/customer/
+   		create
+   		{id}
+   		update
+   		delete/{id}
+
+   		
+-------
+todo
+-------
+
+account/
+		create
+		delete/{id}
+		{type}
+		update
+		transaction/withdraw
+		transaction/lodge
+		balance/{id}
+		transactions/{id}
+		transfer
+		
+		login
+
+		logout
+		

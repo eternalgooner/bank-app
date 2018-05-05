@@ -11,3 +11,17 @@ customer/create
 
 --------------------------------------
 
+
+
+-----------------
+customer/update
+-----------------
+
+{
+  "name": "davido",
+  "address": "3 main street, dublin",
+  "email": "mmm@mmm.mm",
+  "pin": 1234
+}
+
+--------------------------------------
