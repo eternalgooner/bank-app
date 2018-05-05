@@ -31,8 +31,7 @@ public class CustomerResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public CustomerResponse createCustomer(Customer newCustomer){
     	LOGGER.info("entering path webapi/customer/create");
-    	customerService.addCustomer(newCustomer);
-    	
+    	customerService.addCustomer(newCustomer);    	
     	return new CustomerResponse();
     }
     
