@@ -1,7 +1,6 @@
 -----------------
 customer/create
 -----------------
-
 {
   "name": "david",
   "address": "3 main street, dublin",
@@ -10,13 +9,13 @@ customer/create
 }
 
 --------------------------------------
+--------------------------------------
 
 
 
 -----------------
 customer/update
 -----------------
-
 {
   "name": "davido",
   "address": "3 main street, dublin",
@@ -25,3 +24,69 @@ customer/update
 }
 
 --------------------------------------
+--------------------------------------
+
+
+-----------------
+customer/account/create
+-----------------
+{
+  "sortCode": 12345,
+  "accountNumber": 111,
+  "currentBalance": 200,
+  "accountType": "current"
+}
+--------------------------------------
+---------------------------------------
+
+
+-------------
+customer/account/transaction/withdraw
+-------------
+{
+  "type": "credit",
+  "date": "2018-02-02",
+  "description": "atym 009",
+  "amount": 2,
+  "accountFrom": {
+            "accountNumber": 111,
+            "accountType": "current",
+            "currentBalance": 0,
+            "sortCode": 12345
+   },
+   "accountTo": {
+            "accountNumber": 111,
+            "accountType": "current",
+            "currentBalance": 0,
+            "sortCode": 12345
+        }
+}
+
+--------------------------------------
+-------------------------------------
+
+
+
+-------------------
+customer/account/transaction/lodge
+-------------------
+{
+  "type": "credit",
+  "date": "2018-02-02",
+  "description": "atym 009",
+  "amount": 20,
+  "accountFrom": {
+            "accountNumber": 111,
+            "accountType": "current",
+            "currentBalance": 0,
+            "sortCode": 12345
+   },
+   "accountTo": {
+            "accountNumber": 111,
+            "accountType": "current",
+            "currentBalance": 0,
+            "sortCode": 12345
+        }
+}
+--------------------------------------------
+--------------------------------------------

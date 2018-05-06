@@ -79,22 +79,19 @@ public class AccountResource {
     @Path("transaction/lodge")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public TransactionResponse lodge(Transaction transaction) {
-    	LOGGER.info("lodge request received");
-    	accountService.lodgeFunds(transaction);
-        return new TransactionResponse();
+    public Account lodge(Transaction transaction) {
+    	LOGGER.info("lodge request received: " + transaction.toString());
+    	return accountService.lodgeFunds(transaction);
     }
 	
 	
-	//balance/{id}
-    @POST
+	//balance/{type}
+    @GET
     @Path("balance/{type}")
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public AccountResponse getBalance(@PathParam("id") String type) {
+    public Account getBalance(@PathParam("id") String type) {
     	LOGGER.info("account balance request received: " + type);
-    	accountService.getBalance(type);
-        return new AccountResponse();
+    	return accountService.getBalance(type);
     }
 
     

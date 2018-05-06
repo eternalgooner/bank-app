@@ -33,7 +33,7 @@ public class AccountService {
 		return BankRepository.lodgeFunds(transaction);
 	}
 
-	public double getBalance(String type) {
+	public Account getBalance(String type) {
 		return BankRepository.getBalance(type);
 	}
 

@@ -2,7 +2,6 @@ package com.bankapp.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.bankapp.model.Account;
@@ -28,26 +27,20 @@ public class BankRepository {
 	}
 
 	public static Customer getCustomerById(int i) {
-		// TODO Auto-generated method stub
-		//replace with DB operation
 		return customerList.get(i - 1);
 	}
 
 	public static boolean deleteCustomer(int id) {
-		// TODO Auto-generated method stub
-		//replace with DB operation
 		customerList.remove(id - 1);
 		return true;
 	}
 
 	public static boolean addCustomer(Customer newCustomer) {
-		// TODO Auto-generated method stub
 		customerList.add(newCustomer);
 		return true;
 	}
 
 	public static boolean updateAddress(Customer updatedCustomer) {
-		// TODO Auto-generated method stub
 		List<Customer> customerToUpdate = customerList.stream()
 				.filter(customer -> customer.getEmail().equalsIgnoreCase(updatedCustomer.getEmail()))
 				.collect(Collectors.toList());
@@ -77,9 +70,9 @@ public class BankRepository {
 		return customer.getAccountList().get(0);
 	}
 
-	public static double getBalance(String type) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static Account getBalance(String type) {
+		Customer customer = customerList.get(0);
+		return customer.getAccountList().get(0);
 	}
 
 	public static List<Transaction> getTransactions(Customer customer) {
@@ -96,7 +89,10 @@ public class BankRepository {
 	}
 
 	public static Account lodgeFunds(Transaction transaction) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = customerList.get(0);
+		Account account = customer.getAccountList().get(0);
+		transaction.process();
+		account.makeLodgement(transaction.getAmount());
+		return account;
 	}
 }

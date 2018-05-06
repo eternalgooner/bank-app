@@ -20,18 +20,17 @@ account/
    		delete/{id}
    		{type}
    		transaction/withdraw
+   		transaction/lodge
+   		balance/{type}
+   		
    		
 -------
 todo
 -------
 
-account/
+account/		
+	
 		
-		
-		
-		
-		transaction/lodge
-		balance/{id}
 		transactions/{id}
 		transfer		
 		login
