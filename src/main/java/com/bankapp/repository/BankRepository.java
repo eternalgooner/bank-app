@@ -55,24 +55,26 @@ public class BankRepository {
 		return true;
 	}
 
-	public static void addAccount(Account newAccount) {
-		// TODO Auto-generated method stub
-		
+	public static Customer addAccount(Account newAccount) {
+		Customer customer = customerList.get(0);
+		customer.getAccountList().add(newAccount);
+		return customer;
 	}
 
 	public static Account getAccount(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = customerList.get(0);
+		return customer.getAccountList().get(id);
 	}
 
-	public static void deleteAccount(Account account) {
-		// TODO Auto-generated method stub
-		
+	public static Customer deleteAccount(Account account) {
+		Customer customer = customerList.get(0);
+		customer.getAccountList().remove(0);
+		return customer;
 	}
 
 	public static Account getAccount(String type) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = customerList.get(0);
+		return customer.getAccountList().get(0);
 	}
 
 	public static double getBalance(String type) {

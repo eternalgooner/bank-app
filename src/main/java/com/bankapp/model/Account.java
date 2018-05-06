@@ -1,5 +1,6 @@
 package com.bankapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
@@ -7,21 +8,24 @@ public class Account {
 	private int sortCode;
 	private int accountNumber;
 	private double currentBalance;
-	private AccountType accountType;
+	private String accountType;					//should be savings or current
 	private List<Transaction> transactionList;
 	
+	public Account() {}
 	
-	public Account(int sortCode, int accountNumber, double currentBalance, AccountType accountType) {
+	public Account(int sortCode, int accountNumber, double currentBalance, String accountType) {
 		this.sortCode = sortCode;
 		this.accountNumber = accountNumber;
 		this.currentBalance = currentBalance;
 		this.accountType = accountType;
+		this.transactionList = new ArrayList<>();
 	}
 	
 	public boolean makeLodgement(double amount) {
 		currentBalance += amount;
 		return true;
 	}
+	
 	
 	public boolean makeWithdrawal(double amount) {
 		if((currentBalance - amount) < 0) {
@@ -30,11 +34,14 @@ public class Account {
 			currentBalance -= amount;
 			return true;
 		}
-	}
-	
+	}	
 
-	public double getBlanace(int accountId) {
-		return currentBalance;
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
 	}
 	
 	public int getSortCode() {
@@ -55,12 +62,7 @@ public class Account {
 	public void setCurrentBalance(double currentBalance) {
 		this.currentBalance = currentBalance;
 	}
-	public AccountType getType() {
-		return accountType;
-	}
-	public void setType(AccountType accountType) {
-		this.accountType = accountType;
-	}
+
 	public List<Transaction> getTransactionList() {
 		return transactionList;
 	}
@@ -68,8 +70,9 @@ public class Account {
 		this.transactionList = transactionList;
 	}
 	
-	public enum AccountType{
-		CURRENT,
-		SAVINGS
+	@Override
+	public String toString() {
+		return "Account [sortCode=" + sortCode + ", accountNumber=" + accountNumber + ", currentBalance="
+				+ currentBalance + ", accountType=" + accountType + "]";
 	}
 }

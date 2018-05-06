@@ -15,15 +15,19 @@ done
    		update
    		delete/{id}
 
+account/
+		create
+   		delete/{id}
+   		{type}
    		
 -------
 todo
 -------
 
 account/
-		create
-		delete/{id}
-		{type}
+		
+		
+		
 		transaction/withdraw
 		transaction/lodge
 		balance/{id}

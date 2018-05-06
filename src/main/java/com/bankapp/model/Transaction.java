@@ -11,7 +11,7 @@ public class Transaction {
 	private Account accountTo;
 	private Account accountFrom;
 
-	
+	public Transaction() {}
 	
 	public Transaction(TransactionType type, Date date, String description, double amount, Account accountTo, Account accountFrom) {
 		this.type = type;

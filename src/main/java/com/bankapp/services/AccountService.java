@@ -9,16 +9,16 @@ import com.bankapp.repository.BankRepository;
 
 public class AccountService {
 	
-	public void addAccount(Account newAccount) {
-		BankRepository.addAccount(newAccount);
+	public Customer addAccount(Account newAccount) {
+		return BankRepository.addAccount(newAccount);
 	}
 
 	public Account getAccount(int id) {
 		return BankRepository.getAccount(id);
 	}
 
-	public static void deleteAccount(Account account) {
-		BankRepository.deleteAccount(account);
+	public static Customer deleteAccount(Account account) {
+		return BankRepository.deleteAccount(account);
 	}
 
 	public Account getAccount(String type) {

@@ -29,28 +29,26 @@ public class AccountResource {
     @Path("create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public AccountResponse createAccount(Account newAccount){
-    	LOGGER.info("entering path webapi/customer/account/create");
-    	accountService.addAccount(newAccount);
-    	
-    	return new AccountResponse();
+    public Customer createAccount(Account newAccount){
+    	LOGGER.info("entering path webapi/customer/account/create with request\n" + newAccount.toString());
+    	return accountService.addAccount(newAccount);    	
+    	//return new AccountResponse();
     }
     
     	
 	//delete/{id}
     @GET
-    @Path("/delete/{id}")
+    @Path("delete/{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public AccountResponse deleteAccount(@PathParam("id") int id) {
+    public Customer deleteAccount(@PathParam("id") int id) {
     	LOGGER.info("entering path webapi/customer/account/delete{id}/" + id);
     	Account account = accountService.getAccount(id);
     	if (account != null) {
     		LOGGER.info("account found, deleting...");
-    		AccountService.deleteAccount(account);
-            return new AccountResponse();
+    		return AccountService.deleteAccount(account);
 		}else {
 			LOGGER.info("no account found, return error message");
-			return new AccountResponse();
+			return null;
 		}    	
     }	
 	
