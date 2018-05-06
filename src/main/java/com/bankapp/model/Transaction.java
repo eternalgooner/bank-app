@@ -1,11 +1,11 @@
 package com.bankapp.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
 	
-	private TransactionType type;
-	private Date date;
+	private String type;
+	private LocalDate date;
 	private String description;
 	private double amount;
 	private Account accountTo;
@@ -13,7 +13,16 @@ public class Transaction {
 
 	public Transaction() {}
 	
-	public Transaction(TransactionType type, Date date, String description, double amount, Account accountTo, Account accountFrom) {
+	public Transaction(String type, LocalDate date, String description, double amount, Account accountFrom) {
+		this.type = type;
+		this.date = date;
+		this.description = description;
+		this.amount = amount;
+		this.accountTo = null;;
+		this.accountFrom = accountFrom;
+	}
+	
+	public Transaction(String type, LocalDate date, String description, double amount, Account accountTo, Account accountFrom) {
 		this.type = type;
 		this.date = date;
 		this.description = description;
@@ -22,19 +31,19 @@ public class Transaction {
 		this.accountFrom = accountFrom;
 	}
 	
+	
 	public boolean process() {
 		
 		switch (type) {
-		case DEBIT:
+		case "debit":
 			return debitAccount();
-		case CREDIT:
+		case "credit":
 			return creditAccount();
 		default:
 			return false;
 		}
 	}
-
-
+	
 
 	private boolean transferFunds() {
 		//if account from has the funds then proceed with transfer
@@ -53,45 +62,59 @@ public class Transaction {
 		return accountFrom.makeWithdrawal(amount);
 	}
 
-	public TransactionType getType() {
+	public String getType() {
 		return type;
 	}
 
-
-
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-
-
 
 	public String getDescription() {
 		return description;
 	}
 
-
-
 	public double getAmount() {
 		return amount;
 	}
-
-
 
 	public Account getAccountTo() {
 		return accountTo;
 	}
 
-
-
 	public Account getAccountFrom() {
 		return accountFrom;
 	}
+	
+	
 
-
-
-	public enum TransactionType{
-		DEBIT,
-		CREDIT
+	public void setType(String type) {
+		this.type = type;
 	}
 
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setAccountTo(Account accountTo) {
+		this.accountTo = accountTo;
+	}
+
+	public void setAccountFrom(Account accountFrom) {
+		this.accountFrom = accountFrom;
+	}
+
+	@Override
+	public String toString() {
+		return "Transaction [date=" + date + ", description=" + description + ", amount=" + amount + ", accountTo="
+				+ accountTo + ", accountFrom=" + accountFrom + "]";
+	}
 }

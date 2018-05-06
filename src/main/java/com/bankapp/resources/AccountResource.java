@@ -68,10 +68,9 @@ public class AccountResource {
     @Path("transaction/withdraw")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public TransactionResponse withdraw(Transaction transaction) {
-    	LOGGER.info("withdraw request received");
-    	accountService.withdrawFunds(transaction);
-        return new TransactionResponse();
+    public Account withdraw(Transaction transaction) {
+    	LOGGER.info("withdraw request received: " + transaction.toString());
+    	return accountService.withdrawFunds(transaction);
     }
 	
 	

@@ -88,8 +88,11 @@ public class BankRepository {
 	}
 
 	public static Account withdrawFunds(Transaction transaction) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = customerList.get(0);
+		Account account = customer.getAccountList().get(0);
+		transaction.process();
+		account.makeWithdrawal(transaction.getAmount());
+		return account;
 	}
 
 	public static Account lodgeFunds(Transaction transaction) {

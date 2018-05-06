@@ -19,6 +19,7 @@ account/
 		create
    		delete/{id}
    		{type}
+   		transaction/withdraw
    		
 -------
 todo
@@ -28,7 +29,7 @@ account/
 		
 		
 		
-		transaction/withdraw
+		
 		transaction/lodge
 		balance/{id}
 		transactions/{id}
