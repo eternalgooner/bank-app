@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "32073ae2-9ca2-4ff3-a5f6-6174797cc4a7",
+		"name": "BankAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bankGreeting",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:49000/webapi/bank/home",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"bank",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bankCustomers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:49000/webapi/bank/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"bank",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"davihhhhhhd22\",\r\n  \"address\": \"3 main street, dublin\",\r\n  \"email\": \"mmm@mmm.mm\",\r\n  \"pin\": 1234\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerGet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"david\",\r\n  \"address\": \"3 main street, dublin\",\r\n  \"email\": \"mmm@mmm.mm\",\r\n  \"pin\": 1234\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerDelete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"david\",\r\n  \"address\": \"3 main street, dublin\",\r\n  \"email\": \"mmm@mmm.mm\",\r\n  \"pin\": 1234\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerUpdate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"xxxxxxx\",\r\n  \"address\": \"3xxyy main street, dublin\",\r\n  \"email\": \"abc@nnn.bnb\",\r\n  \"pin\": 1234\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sortCode\": 12345,\r\n  \"accountNumber\": 111,\r\n  \"currentBalance\": 200,\r\n  \"accountType\": \"current\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountDelete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sortCode\": 12345,\r\n  \"accountNumber\": 9909,\r\n  \"currentBalance\": 5,\r\n  \"accountType\": \"current\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountGet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sortCode\": 12345,\r\n  \"accountNumber\": 9909,\r\n  \"currentBalance\": 5,\r\n  \"accountType\": \"current\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountTransactionWithdraw",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"credit\",\r\n  \"date\": \"2018-02-02\",\r\n  \"description\": \"atym 009\",\r\n  \"amount\": 2,\r\n  \"accountFrom\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n   },\r\n   \"accountTo\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n        }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/transaction/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"transaction",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountTransactionLodge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"credit\",\r\n  \"date\": \"2018-02-02\",\r\n  \"description\": \"atym 009\",\r\n  \"amount\": 20,\r\n  \"accountFrom\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n   },\r\n   \"accountTo\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n        }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/transaction/lodge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"transaction",
+						"lodge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerAccountBalance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"credit\",\r\n  \"date\": \"2018-02-02\",\r\n  \"description\": \"atym 009\",\r\n  \"amount\": 2,\r\n  \"accountFrom\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n   },\r\n   \"accountTo\": {\r\n            \"accountNumber\": 111,\r\n            \"accountType\": \"current\",\r\n            \"currentBalance\": 0,\r\n            \"sortCode\": 12345\r\n        }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/customer/account/balance/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"customer",
+						"account",
+						"balance",
+						"current"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
