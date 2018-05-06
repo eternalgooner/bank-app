@@ -2,12 +2,12 @@ package com.bankapp.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.bankapp.model.Account;
 import com.bankapp.model.Customer;
 import com.bankapp.model.Transaction;
+import org.hibernate.Session;
 
 public class BankRepository {
 	
@@ -27,10 +27,19 @@ public class BankRepository {
         return customerList;
 	}
 
-	public static Customer getCustomerById(int i) {
+	public static Customer getCustomerById(int custID) {
 		// TODO Auto-generated method stub
 		//replace with DB operation
-		return customerList.get(i - 1);
+            Session sessionOne = HibernateUtil.getSessionFactory().openSession();
+            sessionOne.beginTransaction();
+
+            //first load() method example
+            Customer cust = (Customer) sessionOne.load(Customer.class, custID);
+            System.out.println(cust.getName() + " - " +cust.getAddress());
+
+            sessionOne.getTransaction().commit();
+      
+            return cust;
 	}
 
 	public static boolean deleteCustomer(int id) {

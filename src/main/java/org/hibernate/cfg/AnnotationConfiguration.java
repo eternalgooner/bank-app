@@ -5,10 +5,20 @@
  */
 package org.hibernate.cfg;
 
+import org.hibernate.SessionFactory;
+
 /**
  *
  * @author Aisling
  */
 public class AnnotationConfiguration {
+
+    public Object configure() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public SessionFactory buildSessionFactory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
