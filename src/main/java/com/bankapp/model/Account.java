@@ -33,7 +33,7 @@ public class Account {
 	}
 	
 
-	public double getBlanace(int accountId) {
+	public double getBalance(int accountId) {
 		return currentBalance;
 	}
 	
